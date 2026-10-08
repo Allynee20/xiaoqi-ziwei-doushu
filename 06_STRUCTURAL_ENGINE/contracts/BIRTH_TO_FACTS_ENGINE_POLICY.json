@@ -1,0 +1,19 @@
+{
+  "engine_policy_id": "WORKBENCH_IZTRO_2_5_8_CANONICAL_V1",
+  "status": "ACCEPTED_CORE",
+  "chain": ["BirthProfile", "Workbench normalizeBirth", "iztro 2.5.8", "V4_STRUCTURED_NATAL_FACTS"],
+  "iztro_version": "2.5.8",
+  "algorithm": "default",
+  "yearDivide": "normal",
+  "horoscopeDivide": "normal",
+  "ageDivide": "normal",
+  "dayDivide": "forward",
+  "fixLeap": true,
+  "locale": "zh-CN",
+  "time_index_policy": "0=early-rat,1..11=ox..pig,12=late-rat",
+  "true_solar_time_default": "OFF",
+  "supported_true_solar_timezones": ["Asia/Shanghai","Asia/Hong_Kong","Asia/Taipei","Asia/Tokyo","America/New_York","America/Los_Angeles","Europe/London","Australia/Sydney"],
+  "historical_dst_supported": false,
+  "unknown_timezone_fallback": "REJECT_WHEN_TRUE_SOLAR_ENABLED",
+  "unstable_fields_excluded": ["copyright","timestamps","calculatedAt","generatedAt","UI metadata","runtime notices","query-date fields"]
+}

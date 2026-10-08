@@ -1,0 +1,20 @@
+{
+  "transform_table_id": "IZTRO_2_5_8_DEFAULT_TRANSFORM_TABLE",
+  "status": "PROFILE_SPECIFIC",
+  "construction_policy": "PROJECT_DEFAULT_NOT_UNIVERSAL_TRUTH",
+  "provider": "iztro",
+  "provider_version": "2.5.8",
+  "order": ["LU", "QUAN", "KE", "JI"],
+  "table": {
+    "甲": {"LU":"廉贞","QUAN":"破军","KE":"武曲","JI":"太阳"},
+    "乙": {"LU":"天机","QUAN":"天梁","KE":"紫微","JI":"太阴"},
+    "丙": {"LU":"天同","QUAN":"天机","KE":"文昌","JI":"廉贞"},
+    "丁": {"LU":"太阴","QUAN":"天同","KE":"天机","JI":"巨门"},
+    "戊": {"LU":"贪狼","QUAN":"太阴","KE":"右弼","JI":"天机"},
+    "己": {"LU":"武曲","QUAN":"贪狼","KE":"天梁","JI":"文曲"},
+    "庚": {"LU":"太阳","QUAN":"武曲","KE":"太阴","JI":"天同"},
+    "辛": {"LU":"巨门","QUAN":"太阳","KE":"文曲","JI":"文昌"},
+    "壬": {"LU":"天梁","QUAN":"紫微","KE":"左辅","JI":"武曲"},
+    "癸": {"LU":"破军","QUAN":"巨门","KE":"太阴","JI":"贪狼"}
+  }
+}

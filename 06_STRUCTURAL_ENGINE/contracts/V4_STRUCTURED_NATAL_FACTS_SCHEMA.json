@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "V4_STRUCTURED_NATAL_FACTS_SCHEMA_V1",
+  "title": "V4 Structured Natal Facts",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id","schema_version","subject_id","chart_profile_id","transform_table_id","engine_policy_id","interpretation_switches","calendar_facts","life_palace","body_palace","five_phase_bureau","palaces","relationships","borrow_eligibility","decade_data","excluded_runtime_fields"],
+  "properties": {
+    "schema_id": {"const":"V4_STRUCTURED_NATAL_FACTS"},
+    "schema_version": {"const":"1.0.0"},
+    "subject_id": {"type":["string","null"]},
+    "chart_profile_id": {"const":"V4_DEFAULT_SANHE_COMPATIBLE_PROFILE"},
+    "transform_table_id": {"const":"IZTRO_2_5_8_DEFAULT_TRANSFORM_TABLE"},
+    "engine_policy_id": {"const":"WORKBENCH_IZTRO_2_5_8_CANONICAL_V1"},
+    "interpretation_switches": {
+      "type":"object","additionalProperties":false,
+      "required":["brightness_semantic_consumption","small_limit","flying_transform","dtr"],
+      "properties": {
+        "brightness_semantic_consumption":{"const":"OFF"},
+        "small_limit":{"const":"OFF"},
+        "flying_transform":{"const":"OFF"},
+        "dtr":{"const":"OFF"}
+      }
+    },
+    "calendar_facts": {"type":"object","additionalProperties":false,"required":["gender","solar_date","lunar_date","chinese_date","raw_dates","time_branch","time_range"],"properties":{"gender":{"type":"string"},"solar_date":{"type":"string"},"lunar_date":{"type":"string"},"chinese_date":{"type":"string"},"raw_dates":{"type":"object"},"time_branch":{"type":"string"},"time_range":{"type":"string"}}},
+    "life_palace": {"$ref":"#/definitions/palaceRef"},
+    "body_palace": {"$ref":"#/definitions/palaceRef"},
+    "five_phase_bureau": {"type":"string"},
+    "palaces": {"type":"array","minItems":12,"maxItems":12,"items":{"$ref":"#/definitions/palace"}},
+    "relationships": {"type":"object","additionalProperties":false,"required":["opposites","sanfang"],"properties":{"opposites":{"type":"array","minItems":12,"maxItems":12,"items":{"$ref":"#/definitions/opposite"}},"sanfang":{"type":"array","minItems":12,"maxItems":12,"items":{"$ref":"#/definitions/sanfang"}}}},
+    "borrow_eligibility": {"type":"array","minItems":12,"maxItems":12,"items":{"$ref":"#/definitions/borrow"}},
+    "decade_data": {"type":"array","minItems":12,"maxItems":12,"items":{"$ref":"#/definitions/decade"}},
+    "excluded_runtime_fields": {"type":"array","items":{"type":"string"}}
+  },
+  "definitions": {
+    "palaceRef": {"type":"object","additionalProperties":false,"required":["palace_id","name","branch"],"properties":{"palace_id":{"type":"string"},"name":{"type":"string"},"branch":{"type":"string"}}},
+    "brightness": {"type":"object","additionalProperties":false,"required":["raw_state","source","provider","table_version","semantic_consumption"],"properties":{"raw_state":{"type":["string","null"]},"source":{"const":"SOURCE_STAR_PHYSICAL_CONTEXT"},"provider":{"const":"iztro"},"table_version":{"const":"2.5.8"},"semantic_consumption":{"const":"OFF"}}},
+    "star": {"type":"object","additionalProperties":false,"required":["star_id","name","category","raw_type","scope","physical_palace_id","physical_palace_name","natal_transform","brightness","source_identity"],"properties":{"star_id":{"type":"string"},"name":{"type":"string"},"category":{"enum":["MAIN","AUXILIARY","MISCELLANEOUS"]},"raw_type":{"type":["string","null"]},"scope":{"type":["string","null"]},"physical_palace_id":{"type":"string"},"physical_palace_name":{"type":"string"},"natal_transform":{"type":["string","null"],"enum":["LU","QUAN","KE","JI",null]},"brightness":{"$ref":"#/definitions/brightness"},"source_identity":{"type":"object","additionalProperties":false,"required":["physical_palace_id","source_star_id","relocated"],"properties":{"physical_palace_id":{"type":"string"},"source_star_id":{"type":"string"},"relocated":{"const":false}}}}},
+    "palace": {"type":"object","additionalProperties":false,"required":["palace_id","physical_index","name","stem","branch","is_life_palace","is_body_palace","local_main_tone_status","main_stars","auxiliary_stars","miscellaneous_stars"],"properties":{"palace_id":{"type":"string"},"physical_index":{"type":"integer","minimum":0,"maximum":11},"name":{"type":"string"},"stem":{"type":"string"},"branch":{"type":"string"},"is_life_palace":{"type":"boolean"},"is_body_palace":{"type":"boolean"},"local_main_tone_status":{"enum":["PRESENT","PENDING_EMPTY"]},"main_stars":{"type":"array","items":{"$ref":"#/definitions/star"}},"auxiliary_stars":{"type":"array","items":{"$ref":"#/definitions/star"}},"miscellaneous_stars":{"type":"array","items":{"$ref":"#/definitions/star"}}}},
+    "opposite": {"type":"object","additionalProperties":false,"required":["target_palace_id","opposite_palace_id","evidence_role"],"properties":{"target_palace_id":{"type":"string"},"opposite_palace_id":{"type":"string"},"evidence_role":{"const":"OPPOSITE"}}},
+    "sanfang": {"type":"object","additionalProperties":false,"required":["target_palace_id","sanhe_palace_ids","evidence_role"],"properties":{"target_palace_id":{"type":"string"},"sanhe_palace_ids":{"type":"array","minItems":2,"maxItems":2,"items":{"type":"string"}},"evidence_role":{"const":"SANHE"}}},
+    "borrow": {"type":"object","additionalProperties":false,"required":["target_palace_id","eligible","reason","source_palace_id","borrowed_main_star_ids","borrow_rule","local_facts_remain_active","relocation"],"properties":{"target_palace_id":{"type":"string"},"eligible":{"type":"boolean"},"reason":{"type":"string"},"source_palace_id":{"type":["string","null"]},"borrowed_main_star_ids":{"type":"array","items":{"type":"string"}},"borrow_rule":{"const":"COMPLETE_OPPOSITE_MAIN_TONE_GROUP"},"local_facts_remain_active":{"const":true},"relocation":{"const":false}}},
+    "decade": {"type":"object","additionalProperties":false,"required":["palace_id","range","stem","branch"],"properties":{"palace_id":{"type":"string"},"range":{"type":"array","minItems":2,"maxItems":2,"items":{"type":"integer"}},"stem":{"type":"string"},"branch":{"type":"string"}}}
+  }
+}

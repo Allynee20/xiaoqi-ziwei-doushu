@@ -1,0 +1,19 @@
+{
+  "profile_id": "V4_DEFAULT_SANHE_COMPATIBLE_PROFILE",
+  "status": "PROFILE_SPECIFIC",
+  "purpose": "Canonical default profile for natal, decade and annual reasoning",
+  "supported_layers": ["NATAL", "DECADE", "ANNUAL"],
+  "transform_table_id": "IZTRO_2_5_8_DEFAULT_TRANSFORM_TABLE",
+  "brightness_semantic_consumption": "OFF",
+  "small_limit": "OFF",
+  "flying_transform": "OFF",
+  "dtr": "OFF",
+  "time_grammar": {
+    "same_evidence_across_layers": "RESONANCE_OR_REACTIVATION",
+    "independent_vote_count": 1,
+    "adjacent_layer_interactions": ["NATAL_DECADE", "DECADE_ANNUAL"],
+    "non_adjacent_interaction": "NO_AUTOMATIC_INTENSIFICATION",
+    "event_claim_from_single_natal_signal": "FORBIDDEN"
+  },
+  "forbidden_imports": ["OPTIONAL_FLYING_TRANSFORM_PROFILE", "UNNAMED_BRIGHTNESS_PROFILE", "UNFROZEN_TRANSFORM_TABLE"]
+}

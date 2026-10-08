@@ -1,0 +1,17 @@
+{
+  "protocol_id": "V4_KNOWLEDGE_GAP_PROTOCOL_V1",
+  "status": "ACCEPTED_CORE",
+  "event_type": "KNOWLEDGE_GAP",
+  "required_fields": ["gap_id","topic","missing_knowledge","current_evidence","why_not_enough","profile","external_research_needed"],
+  "field_contract": {
+    "gap_id": "stable non-empty string",
+    "topic": "canonical topic or PROJECT_SCHEMA dimension",
+    "missing_knowledge": "specific missing primitive, grammar, context, exception or profile rule",
+    "current_evidence": "array of traceable evidence summaries or IDs",
+    "why_not_enough": "explicit insufficiency/conflict/profile reason",
+    "profile": "active profile_id",
+    "external_research_needed": "YES or NO"
+  },
+  "stop_behavior": "STOP_UNSUPPORTED_CLAIM_AND_RETURN_MACHINE_READABLE_EVENT",
+  "web_default": "OFF"
+}

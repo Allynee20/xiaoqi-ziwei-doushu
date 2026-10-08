@@ -1,0 +1,7 @@
+*.zip
+node_modules/
+tmp/
+temp/
+validation_private/
+reality_reveal/
+internal/
