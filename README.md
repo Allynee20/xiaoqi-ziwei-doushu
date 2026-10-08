@@ -1,4 +1,4 @@
-# Zi Wei Strong Reasoner Reference
+# 小七紫微斗数
 
 ## What this repository is
 
